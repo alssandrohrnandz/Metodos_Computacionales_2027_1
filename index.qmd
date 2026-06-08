@@ -1,0 +1,32 @@
+---
+title: "Métodos Computacionales en Biología (2027-1)"
+subtitle: "Del pensamiento biológico al modelado algorítmico"
+---
+
+## ¡Bienvenidos!
+
+Este es el espacio oficial de la asignatura **Métodos Computacionales**. Este curso está diseñado para transformar nuestra capacidad analítica como biólogos mediante el uso de lenguajes de programación, modelado estocástico y bases de datos relacionales.
+
+## Filosofía del Curso
+
+Como biólogos, nos enfrentamos a volúmenes de datos que superan nuestra capacidad de análisis manual. Este curso no trata sobre aprender a programar para ser programadores, sino sobre **cómo externalizar el procesamiento de información para enfocarnos en la interpretación biológica.**
+
+> *"Si no puedes explicar cómo llegaste a tu resultado en código, no puedes garantizar que tu resultado sea correcto."*
+
+## ¿Qué aprenderás aquí?
+* **Gestión de datos:** Dejar atrás las hojas de cálculo manuales por bases de datos robustas (SQL).
+* **Modelado:** Simulación de procesos evolutivos, ecológicos y epidemiológicos (ABM).
+* **Arquitectura:** Organización del código mediante Programación Orientada a Objetos (POO).
+* **Redes:** Análisis de conectividad y estructuras complejas en sistemas biológicos.
+
+---
+
+## 🚀 Empezar ahora
+Si es tu primera vez aquí, te sugiero comenzar con la [Clase 01: Introducción a la Biología Computacional](clases/clase-01-intro.qmd).
+
+## Calendario rápido
+* **Sesiones:** Martes y Viernes | 15:00 - 18:00 hrs.
+* **Materiales:** Todo el código y lecturas se encuentran disponibles en el [Repositorio de GitHub](https://github.com/tu-usuario/Metodos_Computacionales_2027_1).
+
+---
+*Este sitio está construido con [Quarto](https://quarto.org) y publicado mediante [GitHub Pages](https://pages.github.com).*

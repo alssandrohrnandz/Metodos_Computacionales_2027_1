@@ -1,0 +1,43 @@
+---
+title: "Clase 01: Introducción a la Biología Computacional"
+subtitle: "Del pensamiento biológico al pensamiento algorítmico"
+author: "M. Sci. Alessandro Hernández"
+date: "2027-01-XX"
+---
+
+## 1. La Biología como Ciencia de Datos
+Hasta hace poco, la biología era una ciencia eminentemente descriptiva o de observación de laboratorio a pequeña escala. Hoy, enfrentamos una "explosión de datos": desde genomas completos hasta el monitoreo de redes ecológicas globales en tiempo real. 
+
+
+
+En este curso, no aprenderemos a "programar por programar". Aprenderemos a **externalizar nuestra capacidad analítica**. Cuando programas, estás delegando la parte mecánica, repetitiva y propensa al error humano a una máquina, para que tú puedas concentrarte en la parte más valiosa: **la formulación de hipótesis y la interpretación biológica.**
+
+## 2. El cambio de paradigma: De la "caja negra" a la "caja transparente"
+En biología, a menudo usamos software (como *software comercial de bioinformática*) como una "caja negra": metes datos, salen resultados, pero no sabes qué pasó dentro. 
+
+* **Nuestro objetivo:** Abrir la caja. 
+* **Nuestra herramienta:** El código.
+
+Si puedes escribir tu propio script para una simulación de deriva génica o para normalizar una base de datos de especies, entonces posees el control total sobre la reproducibilidad de tu ciencia. **Si no puedes explicar cómo llegaste a tu resultado en código, no puedes garantizar que tu resultado sea correcto.**
+
+## 3. ¿Qué es pensar algorítmicamente?
+Un algoritmo no es otra cosa que una **receta lógica**. En el laboratorio, haces protocolos (paso 1: pipetear, paso 2: incubar, paso 3: centrifugar). La programación es exactamente igual, pero con una diferencia crítica: **la computadora no tiene intuición biológica.**
+
+* Si olvidas una condición en tu protocolo, el experimento falla.
+* Si olvidas un punto y coma o una indentación en tu código, el programa falla.
+
+Aprender a programar es, en esencia, aprender a comunicarte de manera extremadamente precisa con una máquina que es increíblemente rápida, pero literal hasta la exageración.
+
+---
+
+## 🚀 Hoja de Ruta del Curso
+En este semestre, nos moveremos a través de tres pilares fundamentales:
+
+1.  **Estructuración:** Cómo organizar los datos para que no se corrompan (Bases de datos).
+2.  **Modelado:** Cómo imitar la vida mediante reglas simples (Agentes y Redes).
+3.  **Abstracción:** Cómo organizar la complejidad mediante objetos (Programación Orientada a Objetos).
+
+
+
+## 📝 Actividad de hoy
+Vamos a configurar nuestro entorno de desarrollo en VS Code. No te preocupes si nunca has escrito una línea de código; hoy comenzaremos entendiendo cómo una instrucción simple en R puede ejecutar procesos que tomarían semanas de trabajo manual en una hoja de cálculo.

@@ -1,0 +1,68 @@
+project:
+  type: website
+  output-dir: docs 
+
+website:
+  title: "Métodos Computacionales 2027-1"
+  description: "Curso de métodos computacionales aplicados a datos biológicos"
+  
+  # Añade un favicon para la pestaña del navegador
+  site-url: https://tu-usuario.github.io/Metodos_Computacionales_2027_1
+  
+  # Barra de navegación superior (Navbar)
+  navbar:
+    background: primary # Cambia el color de fondo (primary, light, dark)
+    search: true        # ¡Añade un buscador automático para todo tu sitio!
+    left:
+      - text: "Inicio"
+        icon: house     # Añade íconos de Bootstrap
+        file: index.qmd
+      - text: "Programa"
+        icon: calendar-check
+        file: programa.qmd
+      - text: "Clases"
+        icon: journal-code
+        menu:
+          - text: "Clase 15: Bases de Datos"
+            file: clases/clase-15-db.qmd
+    right:
+      - icon: github    # Enlace directo al repositorio del curso
+        href: https://github.com/tu-usuario/Metodos_Computacionales_2027_1
+        aria-label: "GitHub"
+
+  # Barra lateral (Sidebar): Ideal para que los alumnos naveguen por temas de forma ordenada
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "Unidad 1: Fundamentos"
+        contents:
+          - text: "Introducción"
+            file: clases/clase-01-intro.qmd
+      - section: "Unidad 2: Manejo de Datos"
+        contents:
+          - text: "Clase 15: Bases de Datos"
+            file: clases/clase-15-db.qmd
+      - section: Bibliografía
+        contents:
+          - text: "Bibliografía"
+            file: Referencias.bib
+
+  # Pie de página del curso
+  page-footer:
+    left: "© 2027 Métodos Computacionales."
+    right: "Construido con [Quarto](https://quarto.org/)."
+
+# Personalización estética global (Formato)
+format:
+  html:
+    theme: 
+      light: cosmo    # Temas limpios y profesionales (puedes usar flatly, materia, lumen)
+      dark: cyborg     # Soporte nativo para modo oscuro si a tus alumnos les gusta programar de noche
+    css: styles.css   # Por si quieres meterle mano al diseño con CSS propio
+    toc: true         # Tabla de contenidos automática a la derecha en cada página
+    toc-title: "En esta clase"
+    toc-depth: 3      # Nivel de títulos que se muestran en el TOC
+    code-fold: show   # Permite colapsar/mostrar los bloques de código (true, false, o show para que inicien abiertos)
+    code-copy: true   # Botón rápido para copiar código
+    code-summary: "Mostrar código"

@@ -1,0 +1,218 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Métodos Computacionales en Biología (2027-1)",
+    "section": "",
+    "text": "Este es el espacio oficial de la asignatura Métodos Computacionales. Este curso está diseñado para transformar nuestra capacidad analítica como biólogos mediante el uso de lenguajes de programación, modelado estocástico y bases de datos relacionales."
+  },
+  {
+    "objectID": "index.html#bitácora-de-clases",
+    "href": "index.html#bitácora-de-clases",
+    "title": "Modelación Computacional y Genética de Poblaciones",
+    "section": "Bitácora de Clases",
+    "text": "Bitácora de Clases\n\nBloque III: Gestión de Datos Biológicos\n\nClase 15: Introducción a las Bases de Datos Relacionales (4.1 y 4.2)"
+  },
+  {
+    "objectID": "clases/clase-15-db.html",
+    "href": "clases/clase-15-db.html",
+    "title": "Clase 15: Introducción a las Bases de Datos en Ciencias Biológicas",
+    "section": "",
+    "text": "Comprender la diferencia entre el almacenamiento no estructurado (archivos planos) y el almacenamiento relacional.\nReconocer los problemas de redundancia y pérdida de integridad en sets de datos a gran escala.\nCrear y conectarse a una base de datos relacional local utilizando el ecosistema de R y SQL.",
+    "crumbs": [
+      "Inicio",
+      "Unidad 2: Manejo de Datos",
+      "Clase 15: Bases de Datos"
+    ]
+  },
+  {
+    "objectID": "clases/clase-15-db.html#objetivos-de-la-sesión",
+    "href": "clases/clase-15-db.html#objetivos-de-la-sesión",
+    "title": "Clase 15: Introducción a las Bases de Datos en Ciencias Biológicas",
+    "section": "",
+    "text": "Comprender la diferencia entre el almacenamiento no estructurado (archivos planos) y el almacenamiento relacional.\nReconocer los problemas de redundancia y pérdida de integridad en sets de datos a gran escala.\nCrear y conectarse a una base de datos relacional local utilizando el ecosistema de R y SQL.",
+    "crumbs": [
+      "Inicio",
+      "Unidad 2: Manejo de Datos",
+      "Clase 15: Bases de Datos"
+    ]
+  },
+  {
+    "objectID": "clases/clase-15-db.html#el-problema-de-los-archivos-planos-.csv-en-ecología",
+    "href": "clases/clase-15-db.html#el-problema-de-los-archivos-planos-.csv-en-ecología",
+    "title": "Clase 15: Introducción a las Bases de Datos en Ciencias Biológicas",
+    "section": "1. El Problema de los Archivos Planos (.csv) en Ecología",
+    "text": "1. El Problema de los Archivos Planos (.csv) en Ecología\nEn estudios ecológicos y de genética del paisaje, es común almacenar todo en un único archivo plano. Imaginemos que estamos monitoreando poblaciones y secuenciando fragmentos de ADN.\nA continuación, simulamos cómo se ve este diseño ineficiente:\n\n\nMostrar código\nlibrary(tidyverse)\n\n# Simulando una tabla plana de campo con redundancia masiva\ndatos_campo &lt;- tibble(\n  individuo_id = paste0(\"IND_\", 1:6),\n  especie = \"Liolaemus qro\",\n  localidad = c(\"Cadereyta\", \"Cadereyta\", \"Cadereyta\", \"Pinal\", \"Pinal\", \"Pinal\"),\n  coordenadas_gps = c(\"20.69,-99.81\", \"20.69,-99.81\", \"20.69,-99.81\", \"21.13,-99.62\", \"21.13,-99.62\", \"21.13,-99.62\"),\n  temperatura_media = c(18.5, 18.5, 18.5, 14.2, 14.2, 14.2),\n  marcador_molecular = \"COI\",\n  secuencia_adn = c(\"ATCGAA...\", \"ATCGAT...\", \"ATCGAA...\", \"TTCGAA...\", \"TTCGAT...\", \"TTCGAA...\")\n)\n\nknitr::kable(datos_campo)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nindividuo_id\nespecie\nlocalidad\ncoordenadas_gps\ntemperatura_media\nmarcador_molecular\nsecuencia_adn\n\n\n\n\nIND_1\nLiolaemus qro\nCadereyta\n20.69,-99.81\n18.5\nCOI\nATCGAA…\n\n\nIND_2\nLiolaemus qro\nCadereyta\n20.69,-99.81\n18.5\nCOI\nATCGAT…\n\n\nIND_3\nLiolaemus qro\nCadereyta\n20.69,-99.81\n18.5\nCOI\nATCGAA…\n\n\nIND_4\nLiolaemus qro\nPinal\n21.13,-99.62\n14.2\nCOI\nTTCGAA…\n\n\nIND_5\nLiolaemus qro\nPinal\n21.13,-99.62\n14.2\nCOI\nTTCGAT…\n\n\nIND_6\nLiolaemus qro\nPinal\n21.13,-99.62\n14.2\nCOI\nTTCGAA…\n\n\n\n\n\nEn este ejemplo, cada fila representa un individuo, pero la información de la especie, localidad, coordenadas y temperatura se repite para cada individuo de esa localidad. Esto no solo ocupa más espacio, sino que también aumenta el riesgo de errores y pérdida de integridad de los datos. Si queremos actualizar la temperatura media para “Cadereyta”, tendríamos que modificar varias filas, lo que es propenso a errores. Además, si queremos agregar más individuos o más localidades, el archivo se vuelve cada vez más difícil de manejar. Este diseño es insostenible a medida que el tamaño del dataset crece, lo que nos lleva a la necesidad de una estructura de datos más eficiente: las bases de datos relacionales.",
+    "crumbs": [
+      "Inicio",
+      "Unidad 2: Manejo de Datos",
+      "Clase 15: Bases de Datos"
+    ]
+  },
+  {
+    "objectID": "index.html#bienvenidos",
+    "href": "index.html#bienvenidos",
+    "title": "Métodos Computacionales en Biología (2027-1)",
+    "section": "",
+    "text": "Este es el espacio oficial de la asignatura Métodos Computacionales. Este curso está diseñado para transformar nuestra capacidad analítica como biólogos mediante el uso de lenguajes de programación, modelado estocástico y bases de datos relacionales."
+  },
+  {
+    "objectID": "index.html#filosofía-del-curso",
+    "href": "index.html#filosofía-del-curso",
+    "title": "Métodos Computacionales en Biología (2027-1)",
+    "section": "Filosofía del Curso",
+    "text": "Filosofía del Curso\nComo biólogos, nos enfrentamos a volúmenes de datos que superan nuestra capacidad de análisis manual. Este curso no trata sobre aprender a programar para ser programadores, sino sobre cómo externalizar el procesamiento de información para enfocarnos en la interpretación biológica.\n\n“Si no puedes explicar cómo llegaste a tu resultado en código, no puedes garantizar que tu resultado sea correcto.”"
+  },
+  {
+    "objectID": "index.html#qué-aprenderás-aquí",
+    "href": "index.html#qué-aprenderás-aquí",
+    "title": "Métodos Computacionales en Biología (2027-1)",
+    "section": "¿Qué aprenderás aquí?",
+    "text": "¿Qué aprenderás aquí?\n\nGestión de datos: Dejar atrás las hojas de cálculo manuales por bases de datos robustas (SQL).\nModelado: Simulación de procesos evolutivos, ecológicos y epidemiológicos (ABM).\nArquitectura: Organización del código mediante Programación Orientada a Objetos (POO).\nRedes: Análisis de conectividad y estructuras complejas en sistemas biológicos."
+  },
+  {
+    "objectID": "index.html#empezar-ahora",
+    "href": "index.html#empezar-ahora",
+    "title": "Métodos Computacionales en Biología (2027-1)",
+    "section": "🚀 Empezar ahora",
+    "text": "🚀 Empezar ahora\nSi es tu primera vez aquí, te sugiero comenzar con la Clase 01: Introducción a la Biología Computacional."
+  },
+  {
+    "objectID": "index.html#calendario-rápido",
+    "href": "index.html#calendario-rápido",
+    "title": "Métodos Computacionales en Biología (2027-1)",
+    "section": "Calendario rápido",
+    "text": "Calendario rápido\n\nSesiones: Martes y Viernes | 15:00 - 18:00 hrs.\nMateriales: Todo el código y lecturas se encuentran disponibles en el Repositorio de GitHub.\n\n\nEste sitio está construido con Quarto y publicado mediante GitHub Pages."
+  },
+  {
+    "objectID": "clases/clase-15-db.html#bases-de-datos-relacionales-solución-a-la-redundancia",
+    "href": "clases/clase-15-db.html#bases-de-datos-relacionales-solución-a-la-redundancia",
+    "title": "Clase 15: Introducción a las Bases de Datos en Ciencias Biológicas",
+    "section": "2. Bases de Datos Relacionales: Solución a la Redundancia",
+    "text": "2. Bases de Datos Relacionales: Solución a la Redundancia\nLas bases de datos relacionales nos permiten organizar la información en tablas relacionadas entre sí, eliminando la redundancia y mejorando la integridad de los datos. En lugar de tener toda la información en un solo archivo, podemos dividirla en varias tablas que se relacionan mediante claves primarias y foráneas. Por ejemplo, podríamos tener una tabla para las localidades, otra para las especies, otra para los individuos y otra para las secuencias de ADN. Cada tabla contendría solo la información relevante, y las relaciones entre ellas se establecerían mediante identificadores únicos. Esto no solo reduce el espacio de almacenamiento, sino que también facilita la actualización y el mantenimiento de los datos. Además, las bases de datos relacionales permiten realizar consultas complejas para extraer información específica sin tener que manipular grandes archivos planos, lo que es especialmente útil en estudios ecológicos y de genética del paisaje donde se manejan grandes volúmenes de datos. En la siguiente sección, veremos cómo crear y conectarnos a una base de datos relacional local utilizando R, lo que nos permitirá gestionar nuestros datos de manera más eficiente y profesional.",
+    "crumbs": [
+      "Inicio",
+      "Unidad 2: Manejo de Datos",
+      "Clase 15: Bases de Datos"
+    ]
+  },
+  {
+    "objectID": "programa.html",
+    "href": "programa.html",
+    "title": "Programa del Curso: Métodos Computacionales 2027-1",
+    "section": "",
+    "text": "Horario: Martes y Viernes | 15:00 - 18:00 hrs.\nModalidad: Presencial con soporte computacional en GitHub Pages."
+  },
+  {
+    "objectID": "programa.html#información-general",
+    "href": "programa.html#información-general",
+    "title": "Programa del Curso: Métodos Computacionales 2027-1",
+    "section": "",
+    "text": "Horario: Martes y Viernes | 15:00 - 18:00 hrs.\nModalidad: Presencial con soporte computacional en GitHub Pages."
+  },
+  {
+    "objectID": "programa.html#cronograma-semestral",
+    "href": "programa.html#cronograma-semestral",
+    "title": "Programa del Curso: Métodos Computacionales 2027-1",
+    "section": "Cronograma Semestral",
+    "text": "Cronograma Semestral\n\n\n\nSemana\nSesión\nTema\nSubtemas\n\n\n\n\n1\n1-2\nFundamentos y Entornos\n1.1 - 1.4\n\n\n2\n3-4\nProgramación Científica\n2.1 - 2.3\n\n\n3\n5-6\nAlgoritmos Aplicados\n2.4\n\n\n4\n7-8\nEstructuras de Datos\n3.1 - 3.2\n\n\n5\n9-10\nComplejidad y POO\n3.3 - 3.5\n\n\n6\n11-12\nPOO y Recursión\n3.5 - 3.6\n\n\n7\n13-14\nAlgoritmos Gráficos\n3.7\n\n\n8\n15-16\nBases de Datos\n4.1 - 4.3\n\n\n9\n17-18\nBases de Datos II\n4.4\n\n\n10\n19-20\nModelos Computacionales\n5.1 - 5.3\n\n\n11\n21-22\nEmergencia y Redes\n5.3, 6.1-6.2\n\n\n12\n23-24\nRedes Biológicas\n6.3 - 6.4\n\n\n13\n25-26\nRedes Dinámicas y ABM\n6.5 - 6.6\n\n\n14\n27-28\nEspacialidad y Autómatas\n6.7 - 6.8\n\n\n15\n29-30\nModelos Continuos\n6.9\n\n\n16\n31-32\nCierre y Proyectos\nEvaluación"
+  },
+  {
+    "objectID": "programa.html#acceso-a-clases",
+    "href": "programa.html#acceso-a-clases",
+    "title": "Programa del Curso: Métodos Computacionales 2027-1",
+    "section": "Acceso a Clases",
+    "text": "Acceso a Clases\nA medida que avancemos, aquí podrás acceder al material específico de cada sesión:\n\nClase 15: Introducción a Bases de Datos\n(Próximamente: Clase 16 - Gestión de metadatos genómicos)"
+  },
+  {
+    "objectID": "programa.html#evaluación",
+    "href": "programa.html#evaluación",
+    "title": "Programa del Curso: Métodos Computacionales 2027-1",
+    "section": "📅 Evaluación",
+    "text": "📅 Evaluación\n\nTareas semanales (GitHub PRs): 40%\nExámenes Parciales (2): 30%\nProyecto Final: 30%\n\n\nNota: Todo el código fuente de este programa y de las clases está alojado en nuestro repositorio. Si detectas un error tipográfico o un bug en los ejemplos, te invito a abrir un Issue en el repositorio para su corrección.c"
+  },
+  {
+    "objectID": "clases/clase-01-intro.html",
+    "href": "clases/clase-01-intro.html",
+    "title": "Clase 01: Introducción a la Biología Computacional",
+    "section": "",
+    "text": "Hasta hace poco, la biología era una ciencia eminentemente descriptiva o de observación de laboratorio a pequeña escala. Hoy, enfrentamos una “explosión de datos”: desde genomas completos hasta el monitoreo de redes ecológicas globales en tiempo real.\nEn este curso, no aprenderemos a “programar por programar”. Aprenderemos a externalizar nuestra capacidad analítica. Cuando programas, estás delegando la parte mecánica, repetitiva y propensa al error humano a una máquina, para que tú puedas concentrarte en la parte más valiosa: la formulación de hipótesis y la interpretación biológica.",
+    "crumbs": [
+      "Inicio",
+      "Unidad 1: Fundamentos",
+      "Introducción"
+    ]
+  },
+  {
+    "objectID": "clases/clase-01-intro.html#la-biología-como-ciencia-de-datos",
+    "href": "clases/clase-01-intro.html#la-biología-como-ciencia-de-datos",
+    "title": "Clase 01: Introducción a la Biología Computacional",
+    "section": "",
+    "text": "Hasta hace poco, la biología era una ciencia eminentemente descriptiva o de observación de laboratorio a pequeña escala. Hoy, enfrentamos una “explosión de datos”: desde genomas completos hasta el monitoreo de redes ecológicas globales en tiempo real.\nEn este curso, no aprenderemos a “programar por programar”. Aprenderemos a externalizar nuestra capacidad analítica. Cuando programas, estás delegando la parte mecánica, repetitiva y propensa al error humano a una máquina, para que tú puedas concentrarte en la parte más valiosa: la formulación de hipótesis y la interpretación biológica.",
+    "crumbs": [
+      "Inicio",
+      "Unidad 1: Fundamentos",
+      "Introducción"
+    ]
+  },
+  {
+    "objectID": "clases/clase-01-intro.html#el-cambio-de-paradigma-de-la-caja-negra-a-la-caja-transparente",
+    "href": "clases/clase-01-intro.html#el-cambio-de-paradigma-de-la-caja-negra-a-la-caja-transparente",
+    "title": "Clase 01: Introducción a la Biología Computacional",
+    "section": "2. El cambio de paradigma: De la “caja negra” a la “caja transparente”",
+    "text": "2. El cambio de paradigma: De la “caja negra” a la “caja transparente”\nEn biología, a menudo usamos software (como software comercial de bioinformática) como una “caja negra”: metes datos, salen resultados, pero no sabes qué pasó dentro.\n\nNuestro objetivo: Abrir la caja.\nNuestra herramienta: El código.\n\nSi puedes escribir tu propio script para una simulación de deriva génica o para normalizar una base de datos de especies, entonces posees el control total sobre la reproducibilidad de tu ciencia. Si no puedes explicar cómo llegaste a tu resultado en código, no puedes garantizar que tu resultado sea correcto.",
+    "crumbs": [
+      "Inicio",
+      "Unidad 1: Fundamentos",
+      "Introducción"
+    ]
+  },
+  {
+    "objectID": "clases/clase-01-intro.html#qué-es-pensar-algorítmicamente",
+    "href": "clases/clase-01-intro.html#qué-es-pensar-algorítmicamente",
+    "title": "Clase 01: Introducción a la Biología Computacional",
+    "section": "3. ¿Qué es pensar algorítmicamente?",
+    "text": "3. ¿Qué es pensar algorítmicamente?\nUn algoritmo no es otra cosa que una receta lógica. En el laboratorio, haces protocolos (paso 1: pipetear, paso 2: incubar, paso 3: centrifugar). La programación es exactamente igual, pero con una diferencia crítica: la computadora no tiene intuición biológica.\n\nSi olvidas una condición en tu protocolo, el experimento falla.\nSi olvidas un punto y coma o una indentación en tu código, el programa falla.\n\nAprender a programar es, en esencia, aprender a comunicarte de manera extremadamente precisa con una máquina que es increíblemente rápida, pero literal hasta la exageración.",
+    "crumbs": [
+      "Inicio",
+      "Unidad 1: Fundamentos",
+      "Introducción"
+    ]
+  },
+  {
+    "objectID": "clases/clase-01-intro.html#hoja-de-ruta-del-curso",
+    "href": "clases/clase-01-intro.html#hoja-de-ruta-del-curso",
+    "title": "Clase 01: Introducción a la Biología Computacional",
+    "section": "🚀 Hoja de Ruta del Curso",
+    "text": "🚀 Hoja de Ruta del Curso\nEn este semestre, nos moveremos a través de tres pilares fundamentales:\n\nEstructuración: Cómo organizar los datos para que no se corrompan (Bases de datos).\nModelado: Cómo imitar la vida mediante reglas simples (Agentes y Redes).\nAbstracción: Cómo organizar la complejidad mediante objetos (Programación Orientada a Objetos).",
+    "crumbs": [
+      "Inicio",
+      "Unidad 1: Fundamentos",
+      "Introducción"
+    ]
+  },
+  {
+    "objectID": "clases/clase-01-intro.html#actividad-de-hoy",
+    "href": "clases/clase-01-intro.html#actividad-de-hoy",
+    "title": "Clase 01: Introducción a la Biología Computacional",
+    "section": "📝 Actividad de hoy",
+    "text": "📝 Actividad de hoy\nVamos a configurar nuestro entorno de desarrollo en VS Code. No te preocupes si nunca has escrito una línea de código; hoy comenzaremos entendiendo cómo una instrucción simple en R puede ejecutar procesos que tomarían semanas de trabajo manual en una hoja de cálculo.",
+    "crumbs": [
+      "Inicio",
+      "Unidad 1: Fundamentos",
+      "Introducción"
+    ]
+  },
+  {
+    "objectID": "clases/clase-15-db.html#introducción-a-baes-de-datos-en-ciencias-biológicas",
+    "href": "clases/clase-15-db.html#introducción-a-baes-de-datos-en-ciencias-biológicas",
+    "title": "Clase 15: Introducción a las Bases de Datos en Ciencias Biológicas",
+    "section": "1. Introducción a Baes de Datos en Ciencias Biológicas",
+    "text": "1. Introducción a Baes de Datos en Ciencias Biológicas\nLas bases de datos son una colección de datos que contienen información relevante con un propósito específico.\n\n\n\n\nEstructura de las Bases de Datos. Las bases de datos a las que la imagen hace referencia son National Center for Biotechnology Information (NCBI), European Nucleotide Archive (ENA) y UniProt como la base de la pirámide; Ensembl y dbSNP (Database for Single Nucleotide Polimorphism) como segundo nivel; Protein Data Bank (PDB), y Kyoto Encyclopedia of Genes and Genomes (KEGG) como tercer nivel; Global Biodiversity Information Facility (GBIF) y WorldClim/PaleoClim como cuarto nivel. Imagen propia. Información obtenida de Cannataro et al. (2014).",
+    "crumbs": [
+      "Inicio",
+      "Unidad 2: Manejo de Datos",
+      "Clase 15: Bases de Datos"
+    ]
+  }
+]

@@ -1,0 +1,57 @@
+---
+title: "Clase 15: Introducción a las Bases de Datos en Ciencias Biológicas"
+subtitle: "Subtemas 4.1 & 4.2 - Gestión de Datos y Estructuras Relacionales"
+author: "M. Sci. Alessandro Hernández"
+bibliography: ../Referencias.bib
+date: "2026-05-26"
+---
+
+## 🎯 Objetivos de la Sesión
+1. Comprender la diferencia entre el almacenamiento no estructurado (archivos planos) y el almacenamiento relacional.
+2. Reconocer los problemas de redundancia y pérdida de integridad en sets de datos a gran escala.
+3. Crear y conectarse a una base de datos relacional local utilizando el ecosistema de R y SQL.
+
+---
+
+## 1. Introducción a Bases de Datos en Ciencias Biológicas
+
+Las bases de datos son una colección de datos que contienen información relevante con un propósito específico.
+
+::: {layout-align="center"}
+![Pirámide de los tipos de Bases de Datos Biológicas. Las bases de datos a las que la imagen hace referencia son *National Center for Biotechnology Information* (NCBI), *European Nucleotide Archive* (ENA) y *UniProt* como la base de la pirámide; *Ensembl* y *dbSNP* (Database for Single Nucleotide Polimorphism) como segundo nivel; *Protein Data Bank* (PDB), y *Kyoto Encyclopedia of Genes and Genomes* (KEGG) como tercer nivel; *Global Biodiversity Information Facility* (GBIF) y *WorldClim/PaleoClim* como cuarto nivel. Imagen propia. Información obtenida de @Cannataro2014. ](../images/TiposDeBases.png){width=99%}
+:::
+
+## 1. El Problema de los Archivos Planos (.csv) en Ecología
+
+En estudios ecológicos y de genética del paisaje, es común almacenar todo en un único archivo plano. Imaginemos que estamos monitoreando poblaciones y secuenciando fragmentos de ADN. 
+
+A continuación, simulamos cómo se ve este diseño ineficiente:
+
+``` {r}
+#| label: simulacion-datos-crudos
+#| warning: false
+#| message: false
+
+library(tidyverse)
+
+# Simulando una tabla plana de campo con redundancia masiva
+datos_campo <- tibble(
+  individuo_id = paste0("IND_", 1:6),
+  especie = "Liolaemus qro",
+  localidad = c("Cadereyta", "Cadereyta", "Cadereyta", "Pinal", "Pinal", "Pinal"),
+  coordenadas_gps = c("20.69,-99.81", "20.69,-99.81", "20.69,-99.81", "21.13,-99.62", "21.13,-99.62", "21.13,-99.62"),
+  temperatura_media = c(18.5, 18.5, 18.5, 14.2, 14.2, 14.2),
+  marcador_molecular = "COI",
+  secuencia_adn = c("ATCGAA...", "ATCGAT...", "ATCGAA...", "TTCGAA...", "TTCGAT...", "TTCGAA...")
+)
+
+knitr::kable(datos_campo)
+
+```
+
+En este ejemplo, cada fila representa un individuo, pero la información de la especie, localidad, coordenadas y temperatura se repite para cada individuo de esa localidad. Esto no solo ocupa más espacio, sino que también aumenta el riesgo de errores y pérdida de integridad de los datos. Si queremos actualizar la temperatura media para "Cadereyta", tendríamos que modificar varias filas, lo que es propenso a errores. Además, si queremos agregar más individuos o más localidades, el archivo se vuelve cada vez más difícil de manejar. Este diseño es insostenible a medida que el tamaño del dataset crece, lo que nos lleva a la necesidad de una estructura de datos más eficiente: las bases de datos relacionales. 
+
+---
+
+## 2. Bases de Datos Relacionales: Solución a la Redundancia
+Las bases de datos relacionales nos permiten organizar la información en tablas relacionadas entre sí, eliminando la redundancia y mejorando la integridad de los datos. En lugar de tener toda la información en un solo archivo, podemos dividirla en varias tablas que se relacionan mediante claves primarias y foráneas. Por ejemplo, podríamos tener una tabla para las localidades, otra para las especies, otra para los individuos y otra para las secuencias de ADN. Cada tabla contendría solo la información relevante, y las relaciones entre ellas se establecerían mediante identificadores únicos. Esto no solo reduce el espacio de almacenamiento, sino que también facilita la actualización y el mantenimiento de los datos. Además, las bases de datos relacionales permiten realizar consultas complejas para extraer información específica sin tener que manipular grandes archivos planos, lo que es especialmente útil en estudios ecológicos y de genética del paisaje donde se manejan grandes volúmenes de datos. En la siguiente sección, veremos cómo crear y conectarnos a una base de datos relacional local utilizando R, lo que nos permitirá gestionar nuestros datos de manera más eficiente y profesional.
