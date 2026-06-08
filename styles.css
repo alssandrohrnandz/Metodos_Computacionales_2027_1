@@ -1,0 +1,101 @@
+/* ==========================================================================
+   ESTILOS PERSONALIZADOS PARA EL CURSO (MÉTODOS COMPUTACIONALES)
+   ========================================================================== */
+
+/* 1. TIPOGRAFÍA Y LECTURA GLOBAL */
+body {
+  /* Mejora la legibilidad aumentando ligeramente el espacio entre líneas */
+  line-height: 1.7;
+  /* Suaviza la renderización de las fuentes en pantallas Mac y Windows */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. CONFIGURACIÓN DE TÍTULOS (H1, H2, H3) */
+h1, h2, h3 {
+  /* Le da un tono gris oscuro azulado a los títulos para que no sean negro puro */
+  color: #2c3e50;
+  /* Un grosor fuerte pero elegante */
+  font-weight: 700;
+  /* Un pequeño espacio extra arriba para separar secciones de forma natural */
+  margin-top: 1.5em;
+}
+
+/* Diseño de acento para los títulos principales de cada sección (H2) */
+h2 {
+  /* Añade una línea sutil debajo de cada H2 para estructurar mejor las clases */
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 8px;
+}
+
+/* 3. BLOQUES DE CÓDIGO (SCRIPTING Y PROGRAMACIÓN)
+   Quarto genera la clase .sourceCode para los bloques de código */
+.sourceCode {
+  /* Añade esquinas ligeramente redondeadas a las cajas de código */
+  border-radius: 6px;
+  /* Una sombra muy sutil para darle profundidad y separarlo del texto */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  /* Aumenta el tamaño de la fuente del código para que no se vea minúsculo */
+  font-size: 0.95em;
+}
+
+/* Cambia el fondo del código en línea (ej. cuando escribes `library(tidyverse)`) */
+code:not(.sourceCode code) {
+  background-color: #f1f3f5;
+  color: #d63384; /* Color contrastante para resaltar variables o comandos cortos */
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* 4. ENLACES (LINKS) */
+a {
+  /* Color del enlace (puedes cambiarlo por tu color institucional o favorito) */
+  color: #0d6efd;
+  /* Quita la línea de subrayado por defecto para un look más limpio */
+  text-decoration: none;
+  /* Transición suave cuando el alumno pasa el mouse por encima */
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  /* Color que toma el enlace al pasar el mouse (un azul más oscuro) */
+  color: #0a58ca;
+  /* Aparece el subrayado solo cuando el mouse está encima */
+  text-decoration: underline;
+}
+
+/* 5. CUIDADO DE IMÁGENES Y MAPAS (REPOSITORIOS, GRÁFICOS) */
+img {
+  /* Asegura que ninguna imagen gigante se salga de los márgenes de la página */
+  max-width: 100%;
+  height: auto;
+  /* Bordes redondeados sutiles para gráficos y capturas de pantalla */
+  border-radius: 8px;
+  /* Sombra suave para que los gráficos destaquen sobre el fondo blanco */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin: 1em 0;
+}
+
+/* 6. TABLA DE CONTENIDOS (TOC) - Barra lateral derecha */
+#TOC {
+  /* Reduce un poco la letra del menú derecho para dar jerarquía visual */
+  font-size: 0.88em;
+  /* Cambia el color del texto de la estructura del archivo */
+  color: #6c757d;
+}
+
+/* Estilo para el elemento de la tabla de contenidos que está activo (donde vas leyendo) */
+#TOC .active {
+  color: #0d6efd !important;
+  font-weight: 600;
+  border-left: 2px solid #0d6efd;
+  padding-left: 8px;
+}
+
+/* 7. CAJAS DE ALERTA O CALLOUTS (Notas, Advertencias, Tips)
+   Ideal para resaltar conceptos clave en las clases */
+.callout {
+  /* Bordes más redondeados para las cajas de notas de Quarto */
+  border-radius: 8px !important;
+  /* Elimina el borde to
