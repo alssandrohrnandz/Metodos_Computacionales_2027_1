@@ -7,7 +7,7 @@ website:
   description: "Curso de métodos computacionales aplicados a datos biológicos"
   
   # Añade un favicon para la pestaña del navegador
-  site-url: https://tu-usuario.github.io/Metodos_Computacionales_2027_1
+  site-url: https://alssandrohrnandz.github.io/Metodos_Computacionales_2027_1
   
   # Barra de navegación superior (Navbar)
   navbar:
@@ -27,7 +27,7 @@ website:
             file: clases/clase-15-db.qmd
     right:
       - icon: github    # Enlace directo al repositorio del curso
-        href: https://github.com/tu-usuario/Metodos_Computacionales_2027_1
+        href: https://github.com/tu-alssandrohrnandz/Metodos_Computacionales_2027_1
         aria-label: "GitHub"
 
   # Barra lateral (Sidebar): Ideal para que los alumnos naveguen por temas de forma ordenada
